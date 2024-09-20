@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1 class="mt-4 mb-4">Sports Management Dashboard</h1>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card text-white bg-primary mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Teams Count</h5>
+                    <p class="card-text">{{ teams_count }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-white bg-success mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Players Count</h5>
+                    <p class="card-text">{{ players_count }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-white bg-info mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Matches Count</h5>
+                    <p class="card-text">{{ matches_count }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="mt-5">Top Players</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Player Name</th>
+                <th>Average Score</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for player in top_players %}
+            <tr>
+                <td>{{ player['PlayerName'] }}</td>
+                <td>{{ player['Score'] }}</td> <!-- Adjusted to show Score directly -->
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
